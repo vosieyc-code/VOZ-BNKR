@@ -1,0 +1,8 @@
+<section id="memes">
+  <h2>The VOZ BOT Energy</h2>
+  <p>Here’s where the madness lives — these images define the VOZ BOT culture.</p>
+
+  <img src="yourimage1.png" alt="VOZ BOT Meme 1" class="meme-img">
+  <img src="yourimage2.png" alt="VOZ BOT Meme 2" class="meme-img">
+  <img src="yourimage3.png" alt="VOZ BOT Meme 3" class="meme-img">
+</section>
