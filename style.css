@@ -1,0 +1,178 @@
+/* ------------------------------
+   COLOR PALETTE (from your image)
+---------------------------------*/
+:root {
+    --pink: #ff66cc;
+    --purple: #6a0dad;
+    --blue: #0099ff;
+    --white: #ffffff;
+    --black: #0d0d0d;
+    --bg-dark: #05010a;
+}
+
+/* ------------------------------
+   GLOBAL STYLES
+---------------------------------*/
+body {
+    margin: 0;
+    background-color: var(--bg-dark);
+    color: var(--white);
+    font-family: "Poppins", Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* ------------------------------
+   HEADER
+---------------------------------*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: rgba(0,0,0,0.6);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 32px;
+    color: var(--pink);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.nav a {
+    margin-left: 20px;
+    color: var(--white);
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    color: var(--pink);
+}
+
+.nav .buy {
+    padding: 8px 16px;
+    border: 1px solid var(--pink);
+    border-radius: 6px;
+}
+
+.nav .buy:hover {
+    background-color: var(--pink);
+    color: var(--black);
+}
+
+/* ------------------------------
+   HERO SECTION
+---------------------------------*/
+.hero {
+    position: relative;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%) blur(1px);
+}
+
+.hero-text {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 700px;
+}
+
+.hero-text h2 {
+    font-size: 60px;
+    color: var(--pink);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    font-size: 22px;
+}
+
+.cta {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 20px;
+    color: var(--black);
+    background-color: var(--pink);
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cta:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+/* ------------------------------
+   SHORT SECTIONS
+---------------------------------*/
+section {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+h2 {
+    color: var(--purple);
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+/* ------------------------------
+   FOOTER
+---------------------------------*/
+.footer {
+    background-color: #000;
+    padding: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--white);
+    opacity: 0.8;
+}// -------------------------------
+// SMOOTH SCROLLING FOR NAV LINKS
+// -------------------------------
+document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', e => {
+        if (link.hash) {
+            e.preventDefault();
+            const target = document.querySelector(link.hash);
+            if (target) {
+                window.scrollTo({
+                    top: target.offsetTop - 60,
+                    behavior: "smooth"
+                });
+            }
+        }
+    });
+});
+
+// -------------------------------
+// SIMPLE FADE-IN EFFECTS
+// -------------------------------
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+        }
+    });
+});
+
+document.querySelectorAll("section").forEach(section => {
+    section.classList.add("fade");
+    observer.observe(section);
+});
